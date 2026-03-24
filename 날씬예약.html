@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날씬예약 | 한의사가 직접 운영하는 다이어트 한약 브랜드</title>
+    <meta name="description" content="한의사가 직접 운영하는 다이어트 한약 브랜드 날씬예약. 실전 검증된 마케팅 전략, 의료광고법 완벽 준수.">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ── 상단 브랜드 히어로 카드 ── */
+        .brand-hero-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f4ff 50%, #f5f0ff 100%);
+            border: 1.5px solid #c8e6ff;
+            border-radius: 24px;
+            padding: 56px 64px;
+            max-width: 960px;
+            margin: 0 auto;
+            box-shadow: 0 8px 40px rgba(80,140,255,0.10);
+        }
+        .brand-hero-card h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin: 12px 0 8px;
+        }
+        .brand-hero-card .sub {
+            font-size: 1.05rem;
+            color: #5a6a8a;
+            margin-bottom: 28px;
+        }
+        .brand-hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+        .brand-hero-features span {
+            background: #fff;
+            border: 1.5px solid #c8e6ff;
+            border-radius: 999px;
+            padding: 8px 20px;
+            font-size: 0.92rem;
+            color: #2563eb;
+            font-weight: 600;
+        }
+        .brand-hero-desc {
+            font-size: 1rem;
+            color: #4a5568;
+            line-height: 1.9;
+            max-width: 640px;
+            margin: 0 auto 32px;
+        }
+        .brand-hero-quote {
+            background: linear-gradient(90deg, #4f8cff, #a259ff);
+            color: #fff;
+            border-radius: 16px;
+            padding: 20px 40px;
+            font-size: 0.97rem;
+            font-weight: 600;
+        }
+
+        /* ── 공통 섹션 ── */
+        .media-section { padding: 100px 0; }
+        .media-section-header { text-align: center; margin-bottom: 56px; }
+        .media-section-header .badge {
+            display: inline-block;
+            border-radius: 999px;
+            padding: 6px 18px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: rgba(37,99,235,0.08);
+            color: #2563eb;
+        }
+        .media-section-header h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 0 10px;
+            color: #1a1a2e;
+        }
+        .media-section-header p { color: #5a6a8a; font-size: 0.95rem; }
+
+        /* ── 섹션 구분선 ── */
+        .media-section + .media-section {
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* ── 유튜브 섹션 ── */
+        #youtube-section { background: #fff; }
+
+        .yt-sub-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1a1a2e;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-left: 4px;
+        }
+        .yt-sub-label .yt-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+        .yt-sub-label .yt-icon.shorts { background: rgba(37,99,235,0.1); color: #2563eb; }
+        .yt-sub-label .yt-icon.video { background: rgba(37,99,235,0.1); color: #2563eb; }
+
+        /* 쇼츠 캐러셀 */
+        .carousel-wrapper {
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 48px;
+        }
+        .carousel-wrapper::before,
+        .carousel-wrapper::after {
+            content: '';
+            position: absolute; top: 0; bottom: 0; width: 60px;
+            z-index: 3; pointer-events: none;
+        }
+        #youtube-section .carousel-wrapper::before { left: 0; background: linear-gradient(to right, #fff 0%, transparent 100%); }
+        #youtube-section .carousel-wrapper::after { right: 0; background: linear-gradient(to left, #fff 0%, transparent 100%); }
+
+        .shorts-track {
+            display: flex;
+            gap: 14px;
+            animation: scrollShorts 30s linear infinite;
+            width: max-content;
+        }
+        .shorts-track:hover { animation-play-state: paused; }
+
+        @keyframes scrollShorts {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .shorts-slot {
+            width: 175px;
+            flex-shrink: 0;
+            aspect-ratio: 9/16;
+            background: #f0f9ff;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border: 1.5px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .shorts-slot:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 12px 40px rgba(37,99,235,0.12);
+            border-color: #c8e6ff;
+        }
+        .shorts-slot img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .shorts-slot:hover img { transform: scale(1.05); }
+        .shorts-slot::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 100%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .shorts-slot:hover::after { opacity: 1; }
+        .shorts-badge {
+            position: absolute; bottom: 10px; left: 10px;
+            background: rgba(37,99,235,0.85); color: #fff;
+            font-size: 0.65rem; font-weight: 700;
+            padding: 3px 8px; border-radius: 5px;
+            z-index: 2;
+            display: flex; align-items: center; gap: 4px;
+        }
+
+        /* 썸네일 캐러셀 */
+        .thumb-track {
+            display: flex;
+            gap: 16px;
+            animation: scrollThumbs 35s linear infinite;
+            width: max-content;
+        }
+        .thumb-track:hover { animation-play-state: paused; }
+
+        @keyframes scrollThumbs {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .thumb-slot {
+            width: 340px;
+            flex-shrink: 0;
+            aspect-ratio: 16/9;
+            background: #f0f9ff;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border: 1.5px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .thumb-slot:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 36px rgba(37,99,235,0.12);
+            border-color: #c8e6ff;
+        }
+        .thumb-slot img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .thumb-slot:hover img { transform: scale(1.05); }
+        .thumb-slot::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 40%;
+            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 100%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .thumb-slot:hover::after { opacity: 1; }
+        .play-icon {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            width: 48px; height: 48px;
+            background: rgba(37,99,235,0.85);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 2;
+        }
+        .play-icon::after {
+            content: '';
+            display: block;
+            width: 0; height: 0;
+            border-left: 14px solid #fff;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            margin-left: 3px;
+        }
+        .thumb-slot:hover .play-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .yt-channel-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #2563eb, #4f8cff);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            margin-top: 36px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .yt-channel-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(37,99,235,0.3);
+        }
+
+        /* ── 인스타그램 섹션 ── */
+        #insta-section { background: linear-gradient(135deg, #f0f9ff 0%, #e6f4ff 50%, #f5f0ff 100%); }
+
+        .insta-layout {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        .insta-fixed {
+            flex-shrink: 0;
+            width: 280px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1.5px solid #c8e6ff;
+            box-shadow: 0 6px 24px rgba(80,140,255,0.10);
+        }
+        .insta-fixed img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            background: #f0f9ff;
+        }
+        .insta-scroll-wrap {
+            flex: 1;
+            overflow: hidden;
+            mask-image: linear-gradient(to right, #000 0%, #000 90%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, #000 0%, #000 90%, transparent 100%);
+        }
+        .insta-scroll-track {
+            display: flex;
+            gap: 16px;
+            width: max-content;
+            animation: insta-scroll 25s linear infinite;
+        }
+        .insta-scroll-track:hover {
+            animation-play-state: paused;
+        }
+        .insta-scroll-item {
+            flex-shrink: 0;
+            width: 286px;
+            height: 286px;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1.5px solid #c8e6ff;
+            box-shadow: 0 4px 16px rgba(80,140,255,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .insta-scroll-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 28px rgba(80,140,255,0.15);
+        }
+        .insta-scroll-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @keyframes insta-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .insta-profile-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #2563eb, #a259ff);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            margin-top: 36px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .insta-profile-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(37,99,235,0.3);
+        }
+
+        /* ── 포스터 섹션 ── */
+        #poster-section { background: #fff; }
+
+        .poster-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .poster-slot {
+            aspect-ratio: 3/4;
+            background: #f0f9ff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1.5px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .poster-slot:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(80,140,255,0.12);
+            border-color: #c8e6ff;
+        }
+
+        /* ── 사주식단 섹션 ── */
+        #saju-section { background: linear-gradient(135deg, #f0f9ff 0%, #e6f4ff 50%, #f5f0ff 100%); }
+
+        .saju-layout {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            overflow: visible;
+        }
+
+        .saju-left {
+            flex-shrink: 0;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .saju-fixed-img {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1.5px solid #c8e6ff;
+            box-shadow: 0 8px 32px rgba(80,140,255,0.10);
+        }
+        .saju-fixed-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .saju-info {
+            background: #fff;
+            border: 1.5px solid #c8e6ff;
+            border-radius: 20px;
+            padding: 32px 40px;
+            margin-bottom: 48px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(80,140,255,0.06);
+        }
+        .saju-info h3 { font-size: 1.15rem; font-weight: 800; color: #1a1a2e; margin: 0 0 14px; }
+        .saju-info p { color: #5a6a8a; line-height: 1.8; margin-bottom: 20px; font-size: 0.9rem; max-width: 850px; margin-left: auto; margin-right: auto; word-break: keep-all; }
+        .saju-tags { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        .saju-tag {
+            background: rgba(37,99,235,0.06);
+            border: 1px solid #c8e6ff;
+            border-radius: 999px;
+            padding: 6px 16px;
+            font-size: 0.82rem;
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        /* 사주 스크롤 */
+        .saju-scroll-wrap {
+            flex: 1;
+            overflow-x: auto;
+            padding: 20px 0;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .saju-scroll-wrap::-webkit-scrollbar {
+            display: none;
+        }
+
+        .saju-scroll-track {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+        }
+        .saju-scroll-item {
+            flex-shrink: 0;
+            width: 260px;
+            aspect-ratio: 9/16;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1.5px solid #c8e6ff;
+            box-shadow: 0 6px 24px rgba(80,140,255,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .saju-scroll-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 36px rgba(80,140,255,0.15);
+        }
+        .saju-scroll-item img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+        }
+
+        /* ── 공통 버튼 영역 ── */
+        .btn-area { text-align: center; }
+
+        @media (max-width: 900px) {
+            .shorts-slot { width: 140px; }
+            .thumb-slot { width: 280px; }
+            .insta-layout { flex-direction: column; }
+            .insta-fixed { width: 100%; max-width: 280px; }
+            .poster-grid { grid-template-columns: repeat(2, 1fr); }
+            .saju-layout { flex-direction: column; }
+            .saju-left { width: 100%; max-width: 280px; }
+            .brand-hero-card { padding: 40px 24px; }
+        }
+        @media (max-width: 600px) {
+            .shorts-slot { width: 120px; }
+            .thumb-slot { width: 240px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo"><img src="하이플러스 블랙로고.png" alt="하이플러스" style="height:42px;"></a>
+            <div class="nav-links" id="navLinks">
+                <a href="#brand-intro">브랜드 소개</a>
+                <a href="#slimbook">상세 안내</a>
+                <a href="#youtube-section">유튜브</a>
+                <a href="#insta-section">인스타그램</a>
+                <a href="#poster-section">포스터</a>
+                <a href="#saju-section">사주식단</a>
+                <a href="#slimbook-products">한약 라인업</a>
+                <a href="날씬예약-전략.html" style="color:#a259ff; font-weight:700;">📋 비즈니스 전략</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="메뉴">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ======================================== -->
+    <!-- 상단 브랜드 히어로 카드 -->
+    <!-- ======================================== -->
+    <section class="section section-white" id="brand-intro" style="padding-top: 120px;">
+        <div class="container">
+            <div class="brand-hero-card animate-on-scroll">
+                <span class="section-badge">OWN BRAND</span>
+                <h2>날씬예약</h2>
+                <p class="sub">한의사가 직접 운영하는 다이어트 한약 브랜드</p>
+
+                <div class="brand-hero-features">
+                    <span>💊 한의사 직접 처방·운영</span>
+                    <span>🧪 실전 검증된 마케팅</span>
+                    <span>⚖️ 의료광고법 완벽 준수</span>
+                    <span>🌿 다이어트 한약 전문</span>
+                </div>
+
+                <p class="brand-hero-desc">
+                    날씬예약은 하이플러스가 직접 만들고, <strong>한의사가 직접 운영</strong>하는 다이어트 한약 브랜드입니다.<br>
+                    단순히 마케팅 대행만 하는 것이 아니라, <strong>자체 브랜드를 직접 런칭</strong>하고 성장시킨 경험이 있습니다.<br>
+                    모든 마케팅 전략은 날씬예약에서 먼저 테스트하여 효과가 확인된 방법만 고객 병원에 적용합니다.
+                </p>
+
+                <div class="brand-hero-quote">
+                    "저희가 직접 사용해보고 효과가 있는 방식을 사용하기 때문에, 안전하고 효과적입니다."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================== -->
+    <!-- 날씬예약 BRAND SHOWCASE -->
+    <!-- ======================================== -->
+    <section class="section section-sky" id="slimbook">
+        <div class="container">
+            <div class="brand-showcase animate-on-scroll">
+                <div class="brand-showcase-img">
+                    <img src="날씬예약 홈페이지.png" alt="날씬예약 홈페이지" loading="lazy">
+                    <img src="날씬예약 홈페이지2.png" alt="날씬예약 홈페이지2" loading="lazy">
+                    <img src="날씬예약 홈페이지 3.png" alt="날씬예약 홈페이지3" loading="lazy">
+                </div>
+                <div class="brand-showcase-text">
+                    <span class="section-badge">BRAND DETAIL</span>
+                    <h2 class="brand-showcase-title">날씬예약</h2>
+                    <p class="brand-showcase-sub">한의사가 직접 운영하는 다이어트 한약 브랜드</p>
+                    <div class="brand-points">
+                        <div class="brand-point">
+                            <div class="brand-point-icon">💊</div>
+                            <div>
+                                <strong>한의사 직접 처방·운영</strong>
+                                <p>의료인이 직접 제품을 처방하고 브랜드 전체를 운영합니다. 의료광고법을 철저히 준수하면서도 효과적인 마케팅 전략을 실행합니다.</p>
+                            </div>
+                        </div>
+                        <div class="brand-point">
+                            <div class="brand-point-icon">🧪</div>
+                            <div>
+                                <strong>마케팅 전략의 실전 검증</strong>
+                                <p>모든 마케팅 전략을 날씬예약에서 먼저 테스트합니다. 블로그, 인스타그램, 유튜브 등 다양한 채널에서 효과가 확인된 방법만을 고객 병원에 적용합니다.</p>
+                            </div>
+                        </div>
+                        <div class="brand-point">
+                            <div class="brand-point-icon">📈</div>
+                            <div>
+                                <strong>다이어트 분야 마케팅 노하우</strong>
+                                <p>의료광고법이 가장 치열한 다이어트 분야에서 직접 브랜드를 운영하며 축적한 노하우를, 원장님 병원 마케팅에 그대로 적용합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================== -->
+    <!-- 날씬예약 PRODUCT LINE -->
+    <!-- ======================================== -->
+    <section class="section section-light" id="slimbook-products">
+        <div class="container">
+            <div class="product-line-header">
+                <div class="product-line-top">
+                    <span class="section-badge">PRODUCT LINE</span>
+                    <h2 class="product-line-title">
+                        <span class="product-line-brand">날씬예약</span>
+                        한약 라인업
+                    </h2>
+                </div>
+                <p class="product-line-desc">한의사가 직접 처방하고 운영하는 다이어트 한약 브랜드. 체질과 목표에 따라 최적화된 한약을 제공합니다.</p>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card" data-delay="0">
+                    <div class="product-img-wrap">
+                        <img src="assets/탕약.jpg" alt="날씬예약 탕약" class="product-img" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-tag">탕약</span>
+                        <h3 class="product-name">날씬예약 탕약</h3>
+                        <p class="product-desc">한의사가 체질을 분석하고 1:1로 처방하는 맞춤 탕약. 흡수율이 높아 빠른 효과를 기대할 수 있습니다.</p>
+                        <ul class="product-features">
+                            <li>체질별 1:1 맞춤 처방</li>
+                            <li>식욕 억제 · 대사 활성화</li>
+                            <li>부종 완화 · 체지방 감소</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-card" data-delay="100">
+                    <div class="product-img-wrap">
+                        <img src="assets/알약.jpg" alt="날씬예약 알약" class="product-img" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-tag">알약</span>
+                        <h3 class="product-name">날씬예약 알약</h3>
+                        <p class="product-desc">복용이 간편한 환 형태의 다이어트 한약. 바쁜 일상 속에서도 꾸준히 관리할 수 있습니다.</p>
+                        <ul class="product-features">
+                            <li>간편한 복용 · 휴대 용이</li>
+                            <li>지방 분해 · 체지방률 감소</li>
+                            <li>100% 한약재 조제</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-card" data-delay="200">
+                    <div class="product-img-wrap">
+                        <img src="assets/가맹병원.jpg" alt="날씬예약 가맹병원" class="product-img" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-tag">가맹병원</span>
+                        <h3 class="product-name">전국 가맹 한의원</h3>
+                        <p class="product-desc">날씬예약 한약은 전국 제휴 한의원에서 처방받을 수 있습니다. 가까운 가맹 한의원을 찾아보세요.</p>
+                        <ul class="product-features">
+                            <li>전국 20개 제휴 한의원</li>
+                            <li>한의사 직접 상담 · 처방</li>
+                            <li>의료광고법 완벽 준수</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-notice">
+                <p>※ 모든 한약은 한의사가 직접 상담 후 체질에 맞게 처방합니다. 제품 이미지는 실제와 다를 수 있습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================== -->
+    <!-- 유튜브 섹션 -->
+    <!-- 영상 추가방법: .yt-slot 안에 아래 중 하나를 복붙
+         [iframe] <iframe src="https://www.youtube.com/embed/영상ID" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+         [이미지] <img src="썸네일이미지.jpg" style="width:100%;height:100%;object-fit:cover;">
+    -->
+    <!-- ======================================== -->
+    <section class="media-section" id="youtube-section">
+        <div class="container">
+            <div class="media-section-header">
+                <div class="badge">▶ 유튜브 채널</div>
+                <h2>날씬예약 유튜브</h2>
+                <p>한의사가 직접 출연하는 다이어트 한약 전문 채널</p>
+            </div>
+
+            <!-- 쇼츠 영역 -->
+            <div class="yt-sub-label">
+                <span class="yt-icon shorts">▶</span>
+                Shorts · 쇼츠
+            </div>
+            <div class="carousel-wrapper">
+                <div class="shorts-track">
+                    <!-- 원본 8개 -->
+                    <div class="shorts-slot">
+                        <img src="쇼츠1.png" alt="날씬예약 쇼츠 1" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <div class="shorts-slot">
+                        <img src="쇼츠2.png" alt="날씬예약 쇼츠 2" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <div class="shorts-slot">
+                        <img src="쇼츠3.png" alt="날씬예약 쇼츠 3" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <div class="shorts-slot">
+                        <img src="쇼츠4.png" alt="날씬예약 쇼츠 4" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <div class="shorts-slot">
+                        <img src="쇼츠5.png" alt="날씬예약 쇼츠 5" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <div class="shorts-slot">
+                        <img src="쇼츠6.png" alt="날씬예약 쇼츠 6" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <div class="shorts-slot">
+                        <img src="쇼츠7.png" alt="날씬예약 쇼츠 7" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <div class="shorts-slot">
+                        <img src="쇼츠8.png" alt="날씬예약 쇼츠 8" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <!-- 복제 (무한 루프용) -->
+                    <div class="shorts-slot">
+                        <img src="쇼츠1.png" alt="날씬예약 쇼츠 1" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <div class="shorts-slot">
+                        <img src="쇼츠2.png" alt="날씬예약 쇼츠 2" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <div class="shorts-slot">
+                        <img src="쇼츠3.png" alt="날씬예약 쇼츠 3" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <div class="shorts-slot">
+                        <img src="쇼츠4.png" alt="날씬예약 쇼츠 4" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <div class="shorts-slot">
+                        <img src="쇼츠5.png" alt="날씬예약 쇼츠 5" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <div class="shorts-slot">
+                        <img src="쇼츠6.png" alt="날씬예약 쇼츠 6" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <div class="shorts-slot">
+                        <img src="쇼츠7.png" alt="날씬예약 쇼츠 7" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                    <div class="shorts-slot">
+                        <img src="쇼츠8.png" alt="날씬예약 쇼츠 8" loading="lazy">
+                        <span class="shorts-badge">▶ Shorts</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 일반 영상 (썸네일) 영역 -->
+            <div class="yt-sub-label">
+                <span class="yt-icon video">▶</span>
+                Videos · 영상
+            </div>
+            <div class="carousel-wrapper">
+                <div class="thumb-track">
+                    <!-- 원본 7개 -->
+                    <div class="thumb-slot">
+                        <img src="썸네일1.png" alt="날씬예약 영상 1" loading="lazy">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="thumb-slot">
+                        <img src="썸네일2.png" alt="날씬예약 영상 2" loading="lazy">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="thumb-slot">
+                        <img src="썸네일3.png" alt="날씬예약 영상 3" loading="lazy">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="thumb-slot">
+                        <img src="썸네일4.png" alt="날씬예약 영상 4" loading="lazy">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="thumb-slot">
+                        <img src="썸네일5.png" alt="날씬예약 영상 5" loading="lazy">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="thumb-slot">
+                        <img src="썸네일6.png" alt="날씬예약 영상 6" loading="lazy">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="thumb-slot">
+                        <img src="썸네일7.png" alt="날씬예약 영상 7" loading="lazy">
+                        <div class="play-icon"></div>
+                    </div>
+                    <!-- 복제 (무한 루프용) -->
+                    <div class="thumb-slot">
+                        <img src="썸네일1.png" alt="날씬예약 영상 1" loading="lazy">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="thumb-slot">
+                        <img src="썸네일2.png" alt="날씬예약 영상 2" loading="lazy">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="thumb-slot">
+                        <img src="썸네일3.png" alt="날씬예약 영상 3" loading="lazy">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="thumb-slot">
+                        <img src="썸네일4.png" alt="날씬예약 영상 4" loading="lazy">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="thumb-slot">
+                        <img src="썸네일5.png" alt="날씬예약 영상 5" loading="lazy">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="thumb-slot">
+                        <img src="썸네일6.png" alt="날씬예약 영상 6" loading="lazy">
+                        <div class="play-icon"></div>
+                    </div>
+                    <div class="thumb-slot">
+                        <img src="썸네일7.png" alt="날씬예약 영상 7" loading="lazy">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-area">
+                <a href="https://www.youtube.com/@Slimhigh" target="_blank" class="yt-channel-btn" id="yt-channel-link">▶ 유튜브 채널 바로가기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================== -->
+    <!-- 인스타그램 섹션 -->
+    <!-- 이미지 추가방법: .insta-slot 안에
+         <img src="게시물이미지.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">
+    -->
+    <!-- ======================================== -->
+    <section class="media-section" id="insta-section">
+        <div class="container">
+            <div class="media-section-header">
+                <div class="badge">📸 인스타그램</div>
+                <h2>날씬예약 인스타그램</h2>
+                <p>최신 소식 · 후기 · 브랜드 스토리</p>
+            </div>
+
+            <div class="insta-layout">
+                <div class="insta-fixed">
+                    <img src="인스타그램 피드/KakaoTalk_Photo_2026-03-24-16-09-26 001.png" alt="날씬예약 인스타 피드" loading="lazy">
+                </div>
+                <div class="insta-scroll-wrap">
+                    <div class="insta-scroll-track">
+                        <div class="insta-scroll-item"><img src="인스타그램 피드/KakaoTalk_Photo_2026-03-24-16-09-26 002.png" alt="날씬예약 인스타 피드" loading="lazy"></div>
+                        <div class="insta-scroll-item"><img src="인스타그램 피드/KakaoTalk_Photo_2026-03-24-16-09-26 003.png" alt="날씬예약 인스타 피드" loading="lazy"></div>
+                        <div class="insta-scroll-item"><img src="인스타그램 피드/KakaoTalk_Photo_2026-03-24-16-09-26 004.png" alt="날씬예약 인스타 피드" loading="lazy"></div>
+                        <div class="insta-scroll-item"><img src="인스타그램 피드/KakaoTalk_Photo_2026-03-24-16-09-26 005.png" alt="날씬예약 인스타 피드" loading="lazy"></div>
+                        <div class="insta-scroll-item"><img src="인스타그램 피드/KakaoTalk_Photo_2026-03-24-16-09-26 006.png" alt="날씬예약 인스타 피드" loading="lazy"></div>
+                        <!-- 무한 루프를 위한 복제 -->
+                        <div class="insta-scroll-item"><img src="인스타그램 피드/KakaoTalk_Photo_2026-03-24-16-09-26 002.png" alt="날씬예약 인스타 피드" loading="lazy"></div>
+                        <div class="insta-scroll-item"><img src="인스타그램 피드/KakaoTalk_Photo_2026-03-24-16-09-26 003.png" alt="날씬예약 인스타 피드" loading="lazy"></div>
+                        <div class="insta-scroll-item"><img src="인스타그램 피드/KakaoTalk_Photo_2026-03-24-16-09-26 004.png" alt="날씬예약 인스타 피드" loading="lazy"></div>
+                        <div class="insta-scroll-item"><img src="인스타그램 피드/KakaoTalk_Photo_2026-03-24-16-09-26 005.png" alt="날씬예약 인스타 피드" loading="lazy"></div>
+                        <div class="insta-scroll-item"><img src="인스타그램 피드/KakaoTalk_Photo_2026-03-24-16-09-26 006.png" alt="날씬예약 인스타 피드" loading="lazy"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-area">
+                <!-- href에 인스타그램 프로필 주소를 넣어주세요 -->
+                <a href="https://www.instagram.com/slimhigh_/" target="_blank" class="insta-profile-btn" id="insta-profile-link">📸 인스타그램 바로가기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================== -->
+    <!-- 최근 포스터 섹션 -->
+    <!-- 이미지 추가방법: .poster-slot 안에
+         <img src="포스터이미지.jpg" style="width:100%;height:100%;object-fit:cover;">
+    -->
+    <!-- ======================================== -->
+    <section class="media-section" id="poster-section">
+        <div class="container">
+            <div class="media-section-header">
+                <div class="badge">🖼️ 최근 포스터</div>
+                <h2>최근 생성된 포스터</h2>
+                <p>날씬예약 마케팅에 사용된 최신 광고 포스터</p>
+            </div>
+
+            <div class="poster-grid">
+                <div class="poster-slot"><img src="포스터/0213 포스터.jpg" alt="날씬예약 포스터" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="poster-slot"><img src="포스터/날씬예약 모델 연출컷 포스터.jpg" alt="날씬예약 포스터" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="poster-slot"><img src="포스터/날씬예약 제품 포스터.jpg" alt="날씬예약 포스터" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="poster-slot"><img src="포스터/날씬예약 캡슐 포스터.jpg" alt="날씬예약 포스터" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="poster-slot"><img src="포스터/날씬예약 포스터.jpg" alt="날씬예약 포스터" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="poster-slot"><img src="포스터/날씬예약 포스터2.jpg" alt="날씬예약 포스터" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="poster-slot"><img src="포스터/날씬예약 포스터3.jpg" alt="날씬예약 포스터" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="poster-slot"><img src="포스터/날씬예약 포스터4.jpg" alt="날씬예약 포스터" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================== -->
+    <!-- 사주식단 (바이럴광고) 섹션 -->
+    <!-- 광고 추가방법: .saju-slot 안에
+         <img src="광고캡쳐.jpg" style="width:100%;height:100%;object-fit:cover;">
+         또는 <video src="광고영상.mp4" autoplay loop muted style="width:100%;height:100%;object-fit:cover;"></video>
+    -->
+    <!-- ======================================== -->
+    <section class="media-section" id="saju-section">
+        <div class="container">
+            <div class="media-section-header">
+                <div class="badge">🔮 바이럴 광고</div>
+                <h2>사주식단</h2>
+                <p>사주 기반 맞춤 다이어트 식단 · 바이럴 콘텐츠</p>
+            </div>
+
+            <div class="saju-info">
+                <h3>🔮 사주식단이란?</h3>
+                <p>
+                    개인의 사주(四柱)를 분석하여 체질에 맞는 맞춤형 다이어트 식단을 제안하는 바이럴 콘텐츠입니다.<br>
+                    의료광고법의 제한 안에서 흥미로운 스토리텔링으로 자연스럽게 날씬예약 브랜드를 노출하고, 
+                    SNS·유튜브·블로그를 통한 유기적 확산을 목표로 합니다.
+                </p>
+                <div class="saju-tags">
+                    <span class="saju-tag">🔮 사주 체질 분석</span>
+                    <span class="saju-tag">🥗 맞춤 식단 제안</span>
+                    <span class="saju-tag">📱 SNS 바이럴</span>
+                    <span class="saju-tag">🧬 한방 다이어트</span>
+                    <span class="saju-tag">⚖️ 의료광고법 준수</span>
+                </div>
+            </div>
+
+            <div class="saju-layout">
+                <div class="saju-left">
+                    <div class="saju-fixed-img">
+                        <img src="사주/날씬예약 사주 중심.png" alt="날씬예약 사주식단" loading="lazy">
+                    </div>
+                </div>
+                <div class="saju-scroll-wrap">
+                    <div class="saju-scroll-track">
+                        <!-- 고정된 우측 사진 3장 (1열 배치) -->
+                        <div class="saju-scroll-item"><img src="사주/날씬예약 메인1.png" alt="날씬예약 사주식단" loading="lazy"></div>
+                        <div class="saju-scroll-item"><img src="사주/날씬예약 메인2.png" alt="날씬예약 사주식단" loading="lazy"></div>
+                        <div class="saju-scroll-item"><img src="사주/날씬예약 메인3.png" alt="날씬예약 사주식단" loading="lazy"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-area">
+                <a href="https://highplus23-source.github.io/saju-main/" target="_blank" class="insta-profile-btn">🔮 사주식단 바로가기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">Hi<span class="logo-accent">+</span></span>
+                    <p class="footer-tagline">의료인이 직접 집행하는 마케팅,<br>하이플러스가 함께합니다.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 하이플러스. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 이미지 팝업 (라이트박스) -->
+    <div id="lightbox" style="
+        display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+        background:rgba(0,0,0,0.85); z-index:99999;
+        justify-content:center; align-items:center; cursor:pointer;
+    " onclick="this.style.display='none'">
+        <span style="position:absolute; top:20px; right:30px; color:#fff; font-size:2.5rem; font-weight:300; cursor:pointer;">&times;</span>
+        <img id="lightbox-img" src="" alt="" style="
+            max-width:90%; max-height:90%; border-radius:12px;
+            box-shadow:0 0 60px rgba(0,0,0,0.5); object-fit:contain;
+        ">
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+    (function(){
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        // 클릭 가능한 이미지 슬롯 선택자
+        const selectors = [
+            '.shorts-slot',
+            '.thumb-slot',
+            '.insta-scroll-item',
+            '.insta-fixed',
+            '.poster-slot',
+            '.saju-scroll-item',
+            '.saju-fixed-img'
+        ];
+
+        document.querySelectorAll(selectors.join(',')).forEach(function(slot){
+            slot.style.cursor = 'pointer';
+            slot.addEventListener('click', function(e){
+                e.stopPropagation();
+                var img = this.querySelector('img');
+                if(img){
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightbox.style.display = 'flex';
+                }
+            });
+        });
+
+        // ESC 키로 닫기
+        document.addEventListener('keydown', function(e){
+            if(e.key === 'Escape') lightbox.style.display = 'none';
+        });
+    })();
+    </script>
+</body>
+</html>

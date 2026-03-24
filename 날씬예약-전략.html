@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날씬예약 비즈니스 전략 | HiPlus</title>
+    <meta name="description" content="날씬예약 비즈니스 전략 — 제조 혁신, 브랜드 본질, 전략적 확장, 유통 다각화, 파트너십 비전">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --navy: #ffffff;
+            --navy2: #f8f9ff;
+            --navy3: #eef1ff;
+            --accent: #2563eb;
+            --accent2: #7c3aed;
+            --gold: #d97706;
+            --teal: #059669;
+            --coral: #dc2626;
+            --text: #1a1a2e;
+            --text-sub: #5a6a8a;
+            --border: rgba(0,0,0,0.08);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Pretendard', -apple-system, sans-serif;
+            background: #ffffff;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* ── Navbar ── */
+        .s-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 18px 48px;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+        .s-nav-logo {
+            font-size: 1.3rem; font-weight: 900; color: var(--text); text-decoration: none;
+        }
+        .s-nav-logo span { color: var(--accent); }
+        .s-nav-title {
+            font-size: 0.88rem; font-weight: 600; color: var(--text-sub);
+            letter-spacing: 0.05em; text-transform: uppercase;
+        }
+        .s-nav-back {
+            font-size: 0.88rem; color: var(--text-sub); text-decoration: none;
+            display: flex; align-items: center; gap: 6px;
+            transition: color 0.2s;
+        }
+        .s-nav-back:hover { color: var(--accent); }
+
+        /* ── Hero ── */
+        .s-hero {
+            min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .s-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 30% 40%, rgba(37,99,235,0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 70% 60%, rgba(124,58,237,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .s-hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(37,99,235,0.08);
+            border: 1px solid rgba(37,99,235,0.2);
+            border-radius: 999px;
+            padding: 8px 22px;
+            font-size: 0.82rem; font-weight: 700; color: var(--accent);
+            letter-spacing: 0.1em; text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+        .s-hero-badge::before {
+            content: ''; width: 8px; height: 8px;
+            background: var(--accent); border-radius: 50%;
+            animation: pulse 2s ease infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.4); }
+        }
+        .s-hero h1 {
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        .s-hero h1 .grad {
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .s-hero-desc {
+            font-size: 1.1rem; color: var(--text-sub);
+            max-width: 580px; line-height: 1.85;
+            margin-bottom: 56px;
+        }
+        .s-hero-cards {
+            display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+            max-width: 860px;
+        }
+        .s-hero-tag {
+            background: #f4f6ff;
+            border: 1px solid rgba(37,99,235,0.12);
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-size: 0.88rem; color: var(--text-sub); font-weight: 600;
+        }
+        .s-hero-tag strong { color: var(--accent); }
+        .s-scroll-hint {
+            margin-top: 64px;
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            color: #94a3b8; font-size: 0.8rem; letter-spacing: 0.1em;
+            animation: bounce 2s ease infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* ── 공통 섹션 ── */
+        .s-section {
+            padding: 100px 0;
+            border-top: 1px solid var(--border);
+        }
+        .s-container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+        .s-num {
+            font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em;
+            text-transform: uppercase; margin-bottom: 16px;
+        }
+        .s-section-title {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 900; line-height: 1.25;
+            margin-bottom: 12px; letter-spacing: -0.02em;
+        }
+        .s-section-quote {
+            font-size: 1rem; font-style: italic;
+            color: var(--text-sub);
+            border-left: 3px solid;
+            padding-left: 16px;
+            margin-bottom: 48px;
+            line-height: 1.75;
+        }
+        .s-grid { display: grid; gap: 24px; }
+        .s-grid-2 { grid-template-columns: 1fr 1fr; }
+        .s-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+        @media (max-width: 768px) {
+            .s-grid-2, .s-grid-3 { grid-template-columns: 1fr; }
+            .s-container { padding: 0 20px; }
+            .s-nav { padding: 16px 20px; }
+            .s-hero h1 { font-size: 2.2rem; }
+        }
+
+        /* ── 카드 기본 ── */
+        .s-card {
+            background: #ffffff;
+            border: 1.5px solid #e8edf8;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+            transition: background 0.25s, border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+        }
+        .s-card:hover {
+            background: #fafbff;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+        .s-card-icon {
+            font-size: 2rem; margin-bottom: 16px; display: block;
+        }
+        .s-card h3 {
+            font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; color: var(--text);
+        }
+        .s-card p { font-size: 0.93rem; color: var(--text-sub); line-height: 1.8; }
+
+        /* ── 섹션별 컬러 ── */
+        /* 01 — 제조혁신 (파랑) */
+        #s01 .s-num { color: var(--accent); }
+        #s01 .s-section-quote { border-color: var(--accent); color: #3b6fd4; }
+        #s01 .s-card:hover { border-color: rgba(37,99,235,0.3); }
+        #s01 .s-card-icon { filter: drop-shadow(0 0 8px rgba(37,99,235,0.2)); }
+
+        /* 02 — 브랜드 본질 (골드) */
+        #s02 { background: #fffbf2; }
+        #s02 .s-num { color: var(--gold); }
+        #s02 .s-section-quote { border-color: var(--gold); color: #92600a; }
+        #s02 .s-card:hover { border-color: rgba(217,119,6,0.3); }
+        .s-stat-row {
+            display: flex; gap: 24px; margin-bottom: 40px; flex-wrap: wrap;
+        }
+        .s-stat {
+            background: #fff8e6;
+            border: 1.5px solid rgba(217,119,6,0.2);
+            border-radius: 16px;
+            padding: 24px 32px;
+            text-align: center; flex: 1; min-width: 140px;
+        }
+        .s-stat-num {
+            font-size: 2.4rem; font-weight: 900; color: var(--gold);
+            letter-spacing: -0.03em; display: block;
+        }
+        .s-stat-label { font-size: 0.82rem; color: var(--text-sub); margin-top: 4px; }
+
+        /* 03 — 전략적 확장 (초록) */
+        #s03 .s-num { color: var(--teal); }
+        #s03 .s-section-quote { border-color: var(--teal); color: #065f46; }
+        #s03 .s-card:hover { border-color: rgba(5,150,105,0.3); }
+        .s-arrow {
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; color: var(--teal); padding: 16px; opacity: 0.4;
+        }
+        .s-synergy {
+            background: linear-gradient(135deg, #f0fdf8, #f0f6ff);
+            border: 1.5px solid rgba(5,150,105,0.2);
+            border-radius: 20px;
+            padding: 32px;
+            margin-top: 32px;
+            display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+        }
+        .s-synergy-icon { font-size: 3rem; flex-shrink: 0; }
+        .s-synergy h4 { font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+        .s-synergy p { font-size: 0.93rem; color: var(--text-sub); line-height: 1.8; }
+
+        /* 04 — 유통 다각화 (코랄) */
+        #s04 { background: #fff8f8; }
+        #s04 .s-num { color: var(--coral); }
+        #s04 .s-section-quote { border-color: var(--coral); color: #991b1b; }
+        #s04 .s-card:hover { border-color: rgba(220,38,38,0.25); }
+        .s-risk-box {
+            background: #fff0f0;
+            border: 1.5px solid rgba(220,38,38,0.15);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-top: 32px;
+            display: flex; gap: 16px; align-items: flex-start;
+        }
+        .s-risk-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+        .s-risk-box h4 { font-size: 1rem; font-weight: 800; color: var(--coral); margin-bottom: 8px; }
+        .s-risk-box p { font-size: 0.93rem; color: var(--text-sub); line-height: 1.8; }
+
+        /* 05 — 파트너십 (보라) */
+        #s05 .s-num { color: var(--accent2); }
+        #s05 .s-section-quote { border-color: var(--accent2); color: #5b21b6; }
+        .s-vision-hero {
+            background: linear-gradient(135deg, #f5f0ff, #eff6ff);
+            border: 1.5px solid rgba(124,58,237,0.2);
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .s-vision-hero h3 {
+            font-size: 1.8rem; font-weight: 900; color: var(--text);
+            margin-bottom: 16px; letter-spacing: -0.02em;
+        }
+        .s-vision-hero p { color: var(--text-sub); max-width: 560px; margin: 0 auto; line-height: 1.85; }
+        .s-roadmap {
+            display: flex; gap: 0; position: relative; margin-top: 40px; flex-wrap: wrap;
+        }
+        .s-roadmap::before {
+            content: '';
+            position: absolute; top: 28px; left: 28px; right: 28px; height: 2px;
+            background: linear-gradient(90deg, var(--accent2), var(--accent));
+        }
+        .s-roadmap-step {
+            flex: 1; min-width: 160px;
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center; position: relative; padding: 0 12px;
+        }
+        .s-roadmap-dot {
+            width: 56px; height: 56px;
+            background: #ffffff;
+            border: 2px solid var(--accent2);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 16px; z-index: 1;
+            box-shadow: 0 4px 20px rgba(124,58,237,0.15);
+        }
+        .s-roadmap-label { font-size: 0.82rem; font-weight: 700; color: var(--text-sub); }
+        .s-roadmap-label strong { display: block; color: var(--text); margin-bottom: 4px; font-size: 0.88rem; }
+
+        /* ── CTA ── */
+        .s-cta {
+            padding: 100px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: linear-gradient(180deg, #f5f0ff 0%, #eff6ff 100%);
+        }
+        .s-cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900; margin-bottom: 16px; letter-spacing: -0.02em; color: var(--text);
+        }
+        .s-cta p { color: var(--text-sub); margin-bottom: 40px; font-size: 1.05rem; }
+        .s-cta-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #fff; padding: 18px 44px;
+            border-radius: 999px; font-size: 1.05rem; font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 8px 32px rgba(37,99,235,0.25);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .s-cta-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(37,99,235,0.4); }
+
+        /* ── 구분선 태그 ── */
+        .s-divider-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #f1f5ff;
+            border: 1px solid rgba(37,99,235,0.12);
+            border-radius: 999px;
+            padding: 6px 18px;
+            font-size: 0.78rem; font-weight: 700; color: var(--text-sub);
+            letter-spacing: 0.1em; text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="s-nav">
+        <a href="날씬예약.html" class="s-nav-logo">Hi<span>+</span></a>
+        <span class="s-nav-title">날씬예약 비즈니스 전략</span>
+        <a href="날씬예약.html" class="s-nav-back">← 날씬예약 홈</a>
+    </nav>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- HERO                                   -->
+    <!-- ══════════════════════════════════════ -->
+    <section class="s-hero">
+        <div class="s-hero-badge">Business Strategy 2025</div>
+        <h1>
+            날씬예약<br>
+            <span class="grad">비즈니스 전략 로드맵</span>
+        </h1>
+        <p class="s-hero-desc">
+            제조 혁신부터 메디컬 플랫폼까지 —<br>
+            날씬예약이 나아갈 5가지 핵심 전략을 제시합니다.
+        </p>
+        <div class="s-hero-cards">
+            <div class="s-hero-tag">⚙️ <strong>01</strong> 제조 공정 혁신</div>
+            <div class="s-hero-tag">🏆 <strong>02</strong> 브랜드 본질</div>
+            <div class="s-hero-tag">👨‍👩‍👧 <strong>03</strong> 가족 케어 확장</div>
+            <div class="s-hero-tag">🛒 <strong>04</strong> 유통 다각화</div>
+            <div class="s-hero-tag">🤝 <strong>05</strong> 파트너십 비전</div>
+        </div>
+        <div class="s-scroll-hint">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            SCROLL
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- 01 제조 공정 혁신                       -->
+    <!-- ══════════════════════════════════════ -->
+    <section class="s-section" id="s01">
+        <div class="s-container">
+            <div class="s-divider-tag">⚙️ PRIORITY No.1</div>
+            <div class="s-num">01 — 최우선 과제</div>
+            <h2 class="s-section-title">제조 공정 혁신 및<br>단가 최적화</h2>
+            <p class="s-section-quote">
+                "품질 안정성과 수익 구조 개선을 위한 기술적 전환이 핵심입니다."
+            </p>
+
+            <div class="s-grid s-grid-3">
+                <div class="s-card">
+                    <span class="s-card-icon">💊</span>
+                    <h3>제형 전환</h3>
+                    <p>현재 캡슐 형태의 계절적 취약성(여름철 뭉침 등)을 해결하기 위해 <strong style="color:#1d4ed8;">고품질 정제(타블렛) 타입</strong>으로의 공정 전환을 최우선 검토 중입니다.</p>
+                </div>
+                <div class="s-card">
+                    <span class="s-card-icon">📉</span>
+                    <h3>생산 단가 절감</h3>
+                    <p>지점 확대에 따른 <strong style="color:#1d4ed8;">규모의 경제</strong>를 실현하고, 시장 경쟁력을 확보하기 위한 획기적인 제조 원가 절감 전략이 필요합니다.</p>
+                </div>
+                <div class="s-card">
+                    <span class="s-card-icon">🔬</span>
+                    <h3>전문가 기술 자문</h3>
+                    <p><strong style="color:#1d4ed8;">상장사 수준</strong>의 제조 공정 노하우와 최적화된 생산 라인 구축을 위한 전문가적 식견과 가이드를 요청드리는 핵심 지점입니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- 02 브랜드 본질                          -->
+    <!-- ══════════════════════════════════════ -->
+    <section class="s-section" id="s02">
+        <div class="s-container">
+            <div class="s-divider-tag">🏆 BRAND ESSENCE</div>
+            <div class="s-num">02 — 브랜드 본질</div>
+            <h2 class="s-section-title">전국 20개 지점이<br>증명하는 실체</h2>
+            <p class="s-section-quote">
+                "별도의 공격적 마케팅 없이 입소문과 결과만으로 이룬 성과입니다."
+            </p>
+
+            <div class="s-stat-row">
+                <div class="s-stat">
+                    <span class="s-stat-num">20</span>
+                    <div class="s-stat-label">전국 지점 수</div>
+                </div>
+                <div class="s-stat">
+                    <span class="s-stat-num">0</span>
+                    <div class="s-stat-label">광고비 지출<br><span style="font-size:0.75rem;">(입소문 기반)</span></div>
+                </div>
+                <div class="s-stat">
+                    <span class="s-stat-num">100%</span>
+                    <div class="s-stat-label">독자적 처방 시스템</div>
+                </div>
+            </div>
+
+            <div class="s-grid s-grid-3">
+                <div class="s-card">
+                    <span class="s-card-icon">📣</span>
+                    <h3>검증된 네트워크</h3>
+                    <p>별도의 공격적 마케팅 없이 <strong style="color:#92600a;">입소문과 결과만으로</strong> 전국 20개 지점 확보 및 안정적 운영 중.</p>
+                </div>
+                <div class="s-card">
+                    <span class="s-card-icon">🏥</span>
+                    <h3>의료적 전문성</h3>
+                    <p><strong style="color:#92600a;">인주한방병원</strong>의 임상 데이터를 표준화하여 탄생한 다이어트 전문 브랜드 '날씬예약'.</p>
+                </div>
+                <div class="s-card">
+                    <span class="s-card-icon">✅</span>
+                    <h3>시장성 입증</h3>
+                    <p>이미 수많은 환자를 통해 <strong style="color:#92600a;">효과와 안정성이 검증된</strong> 독자적 처방 시스템 보유.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- 03 전략적 확장                          -->
+    <!-- ══════════════════════════════════════ -->
+    <section class="s-section" id="s03">
+        <div class="s-container">
+            <div class="s-divider-tag">👨‍👩‍👧 FAMILY SYNERGY</div>
+            <div class="s-num">03 — 전략적 확장</div>
+            <h2 class="s-section-title">엄마와 아이를 잇는<br>'가족 케어' 시너지</h2>
+            <p class="s-section-quote">
+                "아이를 위해 지갑을 여는 엄마가 본인의 건강에도 가장 높은 비용을 지불하는 핵심 결제권자입니다."
+            </p>
+
+            <div class="s-grid s-grid-2">
+                <div class="s-card">
+                    <span class="s-card-icon">👶</span>
+                    <h3>타겟 확장</h3>
+                    <p>아이의 <strong style="color:#065f46;">'성장과 이유식'</strong>에 집중하는 엄마는 본인의 <strong style="color:#065f46;">'다이어트와 건강'</strong>에도 가장 높은 비용을 지불하는 핵심 결제권자입니다.</p>
+                </div>
+                <div class="s-card">
+                    <span class="s-card-icon">📊</span>
+                    <h3>비즈니스 모델</h3>
+                    <p>아이의 성장 제품군에 '날씬예약'의 케어 솔루션을 결합하여, <strong style="color:#065f46;">가구당 고객 생애 가치(LTV)를 극대화</strong>하는 라이프스타일 브랜드로 도약.</p>
+                </div>
+            </div>
+
+            <div class="s-synergy">
+                <div class="s-synergy-icon">🔗</div>
+                <div>
+                    <h4>시너지 포인트: 하나의 가족 — 두 개의 솔루션</h4>
+                    <p>
+                        <strong style="color:#1a1a2e;">아이 성장 제품군</strong> (이유식 · 성장 보조) ＋ <strong style="color:#059669;">날씬예약</strong> (다이어트 · 건강 케어) =<br>
+                        한 가구에서 지속적으로 소비하는 <strong style="color:#1a1a2e;">라이프스타일 멤버십 브랜드</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- 04 유통 다각화                          -->
+    <!-- ══════════════════════════════════════ -->
+    <section class="s-section" id="s04">
+        <div class="s-container">
+            <div class="s-divider-tag">🛒 DISTRIBUTION</div>
+            <div class="s-num">04 — 유통 다각화</div>
+            <h2 class="s-section-title">건강기능식품 라인업 및<br>현실적 장벽</h2>
+            <p class="s-section-quote">
+                "의료 광고의 제약을 극복하고 대중 유통 채널로 브랜드 인지도를 전국으로 확산합니다."
+            </p>
+
+            <div class="s-grid s-grid-3">
+                <div class="s-card">
+                    <span class="s-card-icon">🎯</span>
+                    <h3>도입 목적</h3>
+                    <p><strong style="color:#991b1b;">네이버 · 쿠팡 · 자사 이커머스</strong> 등 대중 유통 채널을 통해 브랜드 인지도를 전국적으로 확산.</p>
+                </div>
+                <div class="s-card">
+                    <span class="s-card-icon">🧴</span>
+                    <h3>제품 컨셉</h3>
+                    <p>처방약의 불편함을 완화하는 <strong style="color:#991b1b;">서포트 제품</strong> 및 일상적인 <strong style="color:#991b1b;">탄수화물·당 흡수 저해</strong> 제품군.</p>
+                </div>
+                <div class="s-card">
+                    <span class="s-card-icon">📦</span>
+                    <h3>유통 채널</h3>
+                    <p>네이버 스마트스토어 · 쿠팡 · 자사몰 연계를 통한 <strong style="color:#991b1b;">옴니채널 전략</strong>으로 온·오프라인 동시 공략.</p>
+                </div>
+            </div>
+
+            <div class="s-risk-box">
+                <div class="s-risk-icon">⚠️</div>
+                <div>
+                    <h4>비즈니스 리스크 — 전략적 판단이 필요한 지점</h4>
+                    <p>OEM/ODM 공정 구축을 본격화하고 있으나, <strong style="color:#1a1a2e;">초기 구축 비용</strong> 및 <strong style="color:#1a1a2e;">최소 주문 수량(MOQ)</strong> 확보 등 금액적인 장벽에 대한 전략적 판단과 대안이 필요한 상황입니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- 05 파트너십 비전                        -->
+    <!-- ══════════════════════════════════════ -->
+    <section class="s-section" id="s05">
+        <div class="s-container">
+            <div class="s-divider-tag">🤝 PARTNERSHIP</div>
+            <div class="s-num">05 — 파트너십 비전</div>
+            <h2 class="s-section-title">메디컬 플랫폼으로의<br>도약</h2>
+            <p class="s-section-quote">
+                "날씬예약의 의료 전문성과 업계 최고 수준의 제조·유통 인프라가 결합될 때 발생하는 시장 점유율의 폭발적 확대."
+            </p>
+
+            <div class="s-vision-hero">
+                <h3>날씬예약 × 파트너사 = 메디컬 플랫폼</h3>
+                <p>
+                    의료 전문성(날씬예약) + 제조·유통 인프라(파트너사)의 결합으로<br>
+                    시장 점유율의 <strong style="color:#7c3aed;">폭발적 확대</strong>를 실현합니다.
+                </p>
+            </div>
+
+            <div class="s-grid s-grid-2">
+                <div class="s-card">
+                    <span class="s-card-icon">💡</span>
+                    <h3>협업 가치</h3>
+                    <p>날씬예약의 <strong style="color:#5b21b6;">임상 데이터 · 처방 시스템 · 20개 지점 네트워크</strong>와 파트너사의 제조 공정 노하우가 결합될 때 발생하는 시너지.</p>
+                </div>
+                <div class="s-card">
+                    <span class="s-card-icon">🗺️</span>
+                    <h3>향후 계획</h3>
+                    <p>효율적인 제조 공정 확정 및 건강기능식품 시장 진입을 위한 <strong style="color:#5b21b6;">구체적인 실행 로드맵</strong> 수립.</p>
+                </div>
+            </div>
+
+            <div class="s-roadmap">
+                <div class="s-roadmap-step">
+                    <div class="s-roadmap-dot">⚙️</div>
+                    <div class="s-roadmap-label">
+                        <strong>PHASE 1</strong>
+                        제형 전환 &<br>공정 최적화
+                    </div>
+                </div>
+                <div class="s-roadmap-step">
+                    <div class="s-roadmap-dot">🏭</div>
+                    <div class="s-roadmap-label">
+                        <strong>PHASE 2</strong>
+                        OEM/ODM<br>라인 구축
+                    </div>
+                </div>
+                <div class="s-roadmap-step">
+                    <div class="s-roadmap-dot">🛒</div>
+                    <div class="s-roadmap-label">
+                        <strong>PHASE 3</strong>
+                        건기식<br>채널 진입
+                    </div>
+                </div>
+                <div class="s-roadmap-step">
+                    <div class="s-roadmap-dot">👨‍👩‍👧</div>
+                    <div class="s-roadmap-label">
+                        <strong>PHASE 4</strong>
+                        가족 케어<br>브랜드 확장
+                    </div>
+                </div>
+                <div class="s-roadmap-step">
+                    <div class="s-roadmap-dot">🚀</div>
+                    <div class="s-roadmap-label">
+                        <strong>PHASE 5</strong>
+                        메디컬<br>플랫폼 완성
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- CTA                                    -->
+    <!-- ══════════════════════════════════════ -->
+    <section class="s-cta">
+        <div class="s-container">
+            <h2>함께 만들어갈<br>메디컬 플랫폼</h2>
+            <p>날씬예약의 비전과 전략에 공감하신다면, 지금 대화를 시작하세요.</p>
+            <a href="날씬예약.html" class="s-cta-btn">
+                날씬예약 브랜드 홈 →
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>
